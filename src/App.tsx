@@ -63,6 +63,8 @@ function App(): JSX.Element {
 
     const[isDarkMode, setDarkMode] = useState(false)
 
+
+    //tasks
     const removeTask = (taskId: string, todoListId: string) => {
         const tasksForUpdate: Array<TaskType> = tasks[todoListId]
         const resultOfUpdate: Array<TaskType> = tasksForUpdate.filter((task) => task.id !== taskId)
@@ -88,6 +90,8 @@ function App(): JSX.Element {
     const changeTaskTitle = (taskId: string, newTitle: string, todoListId: string) => {
         setTasks({...tasks, [todoListId]: tasks[todoListId].map(t => t.id === taskId ? {...t, title: newTitle} : t)})
     }
+
+    //todolist
     const changeTodoListFilter = (filter: FilterValuesType, todoListId: string) => {
         setTodoLists(todoLists.map(tl => tl.id === todoListId ? {...tl, filter: filter} : tl))
     }
